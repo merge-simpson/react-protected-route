@@ -4,6 +4,7 @@ import React, { useLayoutEffect, useState } from "react";
 import useAuth from "@store/useAuth";
 import protectedRoutes from "@components/common/router/protectedRoutes";
 import unprotectedRoutes from "@components/common/router/unprotectedRoutes";
+import QUICK_PATH from "@utils/quick-path";
 
 function App() {
   const auth = useAuth();
@@ -15,11 +16,12 @@ function App() {
     useState<string>("/");
 
   useLayoutEffect(() => {
-    console.log(auth.isAuthenticated);
+    const { HOME, LOGIN } = QUICK_PATH;
+
     setRouteComponentSet(
       auth.isAuthenticated ? protectedRoutes : unprotectedRoutes
     );
-    setDefaultRedirectionPath(auth.isAuthenticated ? "/" : "/login");
+    setDefaultRedirectionPath(auth.isAuthenticated ? HOME : LOGIN);
   }, [auth.isAuthenticated]);
 
   return (
