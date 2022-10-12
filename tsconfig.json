@@ -3,7 +3,6 @@
     "target": "ESNext",
     "types": ["node"],
     "paths": {
-      "@/*": ["./src/*"],
       "@assets/*": ["./src/assets/*"],
       "@components/*": ["./src/components/*"],
       "@data/*": ["./src/data/*"],
