@@ -5,7 +5,7 @@ import QUICK_PATH from "@utils/quick-path";
 const { LOGIN } = QUICK_PATH;
 
 const unprotectedRoutes = [
-  //
+  // array required
   <Route key={LOGIN} path={LOGIN} element={<LoginProgress />} />,
 ];
 
