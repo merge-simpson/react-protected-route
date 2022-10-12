@@ -5,8 +5,6 @@ import "./index.css";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <BrowserRouter>
-    <Routes>
-      <App />
-    </Routes>
+    <App />
   </BrowserRouter>
 );
