@@ -1,7 +1,24 @@
-const OTPConfirmForm = () => {
+import { FunctionComponent as FC } from "react";
+
+export interface OTPConfirmFormProps {
+  next: () => void;
+}
+
+const OTPConfirmForm: FC<OTPConfirmFormProps> = ({ next }) => {
   return (
     //
-    <div>OTPConfirmForm</div>
+    <div>
+      <h1>OTPConfirmForm</h1>
+      <form
+        onSubmit={(evt) => {
+          evt.preventDefault();
+          next();
+        }}
+      >
+        <input value="012346" onChange={() => {}} />
+        <button>LOGIN</button>
+      </form>
+    </div>
   );
 };
 

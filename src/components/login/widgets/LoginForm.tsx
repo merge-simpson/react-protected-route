@@ -1,18 +1,22 @@
-import useAuth from "@store/useAuth";
+import { FunctionComponent as FC } from "react";
 
-const LoginForm = () => {
-  const auth = useAuth();
+export interface LoginFormProps {
+  next: () => void;
+}
+
+const LoginForm: FC<LoginFormProps> = (props) => {
+  const { next } = props;
 
   return (
     <form
       onSubmit={(evt) => {
         evt.preventDefault();
-        auth.login();
+        next();
       }}
     >
       <input value="abc1234" onChange={() => {}} />
-      <input type="password" value="1234" onChange={() => {}} />
-      <button>Login</button>
+      <input type="password" value="q1w2e3!@" onChange={() => {}} />
+      <button>SEND OTP</button>
     </form>
   );
 };
