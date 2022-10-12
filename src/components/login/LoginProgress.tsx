@@ -6,6 +6,8 @@ import OTPConfirmForm from "./widgets/OTPConfirmForm";
 export type LoginStepName = "AUTH" | "OTP";
 
 const LoginProgress = () => {
+  const auth = useAuth();
+
   const ProgressName: { [key in LoginStepName]: LoginStepName } = {
     AUTH: "AUTH",
     OTP: "OTP",
@@ -15,8 +17,6 @@ const LoginProgress = () => {
     ProgressName.AUTH,
     ProgressName.OTP,
   ];
-
-  const auth = useAuth();
 
   const [stepIndex, setStepIndex] = useState<number>(0);
 
