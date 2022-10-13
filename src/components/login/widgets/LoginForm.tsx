@@ -1,4 +1,5 @@
 import { FunctionComponent as FC } from "react";
+import NonSubmitButton from "@utils/nonsubmit-button";
 
 export interface LoginFormProps {
   next: () => void;
@@ -19,23 +20,6 @@ const LoginForm: FC<LoginFormProps> = (props) => {
       <NonSubmitButton>CANCEL</NonSubmitButton>
     </form>
   );
-};
-
-interface NonSubmitButtonProps
-  extends React.DetailedHTMLProps<
-    React.ButtonHTMLAttributes<HTMLButtonElement>,
-    HTMLButtonElement
-  > {}
-
-const NonSubmitButton: FC<NonSubmitButtonProps> = (props) => {
-  const { onClick: forwardClickEventHandler, ...restProps } = props;
-
-  const onClick: React.MouseEventHandler<HTMLButtonElement> = (evt) => {
-    evt.preventDefault();
-    !!forwardClickEventHandler && forwardClickEventHandler(evt);
-  };
-
-  return <button {...restProps} onClick={onClick} />;
 };
 
 export default LoginForm;
