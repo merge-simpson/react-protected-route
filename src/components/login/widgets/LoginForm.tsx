@@ -10,13 +10,19 @@ const LoginForm: FC<LoginFormProps> = (props) => {
   return (
     <form
       onSubmit={(evt) => {
-        evt.preventDefault();
         next();
       }}
     >
       <input value="abc1234" onChange={() => {}} />
       <input type="password" value="q1w2e3!@" onChange={() => {}} />
       <button>SEND OTP</button>
+      <button
+        onClick={(evt) => {
+          evt.preventDefault();
+        }}
+      >
+        CANCEL
+      </button>
     </form>
   );
 };
