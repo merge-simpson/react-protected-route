@@ -11,6 +11,7 @@ const LoginForm: FC<LoginFormProps> = (props) => {
   return (
     <form
       onSubmit={(evt) => {
+        evt.preventDefault();
         next();
       }}
     >
