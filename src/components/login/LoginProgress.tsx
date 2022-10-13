@@ -25,7 +25,7 @@ const LoginProgress = () => {
     const isLastStep = nextStep === orderedStepList.length;
 
     if (isLastStep) {
-      auth.login();
+      auth.login({ success: console.log });
       return;
     }
 

@@ -4,7 +4,6 @@ import ContextCallbackOption from "@models/common/ContextCallbackOption";
 
 interface AuthState {
   isAuthenticated: boolean;
-  updateAuthenticated: () => boolean;
   login: (option?: ContextCallbackOption) => void;
   logout: (callback?: () => void) => void;
 }
@@ -14,20 +13,21 @@ const useAuth = create<AuthState>((set, get) => {
     // not one of null or undefined
     isAuthenticated: localStorage.getItem("authUser") != null,
 
-    updateAuthenticated: () => {
-      const isAuthenticated = localStorage.getItem("authUser") != null;
-      set((state) => ({ isAuthenticated }));
-      return isAuthenticated;
-    },
-
     login: (option) => {
-      type T = { data: Partial<User> };
+      type T = { data: Partial<User> }; // Partial<T>, Omit<T, "attr1" | "attr2" | "attr3">
 
       // sample promise and response
+
+      // new Promise(callback?: (resolve함수, reject함수) => void)
       const loginPromise = new Promise<T>((resolve, reject) => {
         const response = { data: { userName: "abc123", nickname: "조아라" } };
-        resolve(response);
+        resolve(response); // 우리가 알던 return 역할(멈추진 않음)
+        // reject(`삔또 상해서 에러`) // 우리가 알던 throw 역할(멈추진 않음)
       });
+
+      // axios.post(url, requestBody, {header: {"Content-Type": "", "auth-key": "asfasdf"}})
+
+      // const { data } = props;
 
       loginPromise
         .then(({ data }) => data)
@@ -40,12 +40,14 @@ const useAuth = create<AuthState>((set, get) => {
 
           // save on local storage
           localStorage.setItem("authUser", JSON.stringify(user));
+          // JSON.parse(  localStorage.getItme("authUser") ?? "null"  ) -> 다시 객체로 변환
 
           // change state
           set({ isAuthenticated: true });
 
           !!option?.success && option.success(user);
         })
+        // .catch(console.error) 코드와 비교:
         .catch(!!option?.onCatch ? option?.onCatch : console.error);
     },
 

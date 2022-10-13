@@ -7,18 +7,17 @@ import unprotectedRoutes from "@components/common/router/unprotectedRoutes";
 import QUICK_PATH from "@utils/quick-path";
 
 function App() {
+  const { HOME, LOGIN } = QUICK_PATH;
   const auth = useAuth();
 
-  const [routeComponentSet, setRouteComponentSet] = useState<
-    React.ReactElement[]
-  >([]);
+  const [routeComponents, setRouteComponents] = useState<React.ReactElement[]>(
+    []
+  );
   const [defaultRedirectionPath, setDefaultRedirectionPath] =
-    useState<string>("/");
+    useState<string>(HOME);
 
   useLayoutEffect(() => {
-    const { HOME, LOGIN } = QUICK_PATH;
-
-    setRouteComponentSet(
+    setRouteComponents(
       auth.isAuthenticated ? protectedRoutes : unprotectedRoutes
     );
     setDefaultRedirectionPath(auth.isAuthenticated ? HOME : LOGIN);
@@ -27,7 +26,7 @@ function App() {
   return (
     <div className="App">
       <Routes>
-        {routeComponentSet}
+        {routeComponents}
         <Route
           path="*"
           element={<Navigate replace to={defaultRedirectionPath} />}
