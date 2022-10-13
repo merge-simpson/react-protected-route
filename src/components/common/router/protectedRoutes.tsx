@@ -7,7 +7,7 @@ const { HOME } = QUICK_PATH;
 const protectedRoutes = [
   // use array to prevent error: [...] is not a <Route> component. All component children of <Routes> must be a <Route> or <React.Fragment>
   <Route key={HOME} path={HOME} element={<Home />} />,
-  <Route path="*" element={<Navigate replace to={HOME} />} />,
+  <Route key="redirection" path="*" element={<Navigate replace to={HOME} />} />,
 ];
 
 export default protectedRoutes;

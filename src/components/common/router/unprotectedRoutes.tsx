@@ -7,7 +7,11 @@ const { LOGIN } = QUICK_PATH;
 const unprotectedRoutes = [
   // array required
   <Route key={LOGIN} path={LOGIN} element={<LoginProgress />} />,
-  <Route path="*" element={<Navigate replace to={LOGIN} />} />,
+  <Route
+    key="redirection"
+    path="*"
+    element={<Navigate replace to={LOGIN} />}
+  />,
 ];
 
 export default unprotectedRoutes;
