@@ -1,6 +1,7 @@
 import create from "zustand";
 import User from "@models/user/User";
 import ContextCallbackOption from "@models/common/ContextCallbackOption";
+import STORAGE_KEY from "@utils/storage-key";
 
 interface AuthState {
   isAuthenticated: boolean;
@@ -9,9 +10,11 @@ interface AuthState {
 }
 
 const useAuth = create<AuthState>((set, get) => {
+  const AUTHUSER = STORAGE_KEY.AUTHUSER;
+
   return {
     // not one of null or undefined
-    isAuthenticated: localStorage.getItem("authUser") != null,
+    isAuthenticated: localStorage.getItem(AUTHUSER) != null,
 
     login: (option) => {
       type T = { data: Partial<User> }; // Partial<T>, Omit<T, "attr1" | "attr2" | "attr3">
@@ -39,7 +42,7 @@ const useAuth = create<AuthState>((set, get) => {
           }
 
           // save on local storage
-          localStorage.setItem("authUser", JSON.stringify(user));
+          localStorage.setItem(AUTHUSER, JSON.stringify(user));
           // JSON.parse(  localStorage.getItme("authUser") ?? "null"  ) -> 다시 객체로 변환
 
           // change state
@@ -52,7 +55,7 @@ const useAuth = create<AuthState>((set, get) => {
     },
 
     logout: (callback) => {
-      localStorage.removeItem("authUser");
+      localStorage.removeItem(AUTHUSER);
       set({ isAuthenticated: false });
       !!callback && callback();
     },
