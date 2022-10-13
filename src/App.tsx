@@ -13,25 +13,15 @@ function App() {
   const [routeComponents, setRouteComponents] = useState<React.ReactElement[]>(
     []
   );
-  const [defaultRedirectionPath, setDefaultRedirectionPath] =
-    useState<string>(HOME);
-
   useLayoutEffect(() => {
     setRouteComponents(
       auth.isAuthenticated ? protectedRoutes : unprotectedRoutes
     );
-    setDefaultRedirectionPath(auth.isAuthenticated ? HOME : LOGIN);
   }, [auth.isAuthenticated]);
 
   return (
     <div className="App">
-      <Routes>
-        {routeComponents}
-        <Route
-          path="*"
-          element={<Navigate replace to={defaultRedirectionPath} />}
-        />
-      </Routes>
+      <Routes>{routeComponents}</Routes>
     </div>
   );
 }

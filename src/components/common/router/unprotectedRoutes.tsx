@@ -1,5 +1,5 @@
 import LoginProgress from "@components/login/LoginProgress";
-import { Route } from "react-router-dom";
+import { Navigate, Route } from "react-router-dom";
 import QUICK_PATH from "@utils/quick-path";
 
 const { LOGIN } = QUICK_PATH;
@@ -7,6 +7,7 @@ const { LOGIN } = QUICK_PATH;
 const unprotectedRoutes = [
   // array required
   <Route key={LOGIN} path={LOGIN} element={<LoginProgress />} />,
+  <Route path="*" element={<Navigate replace to={LOGIN} />} />,
 ];
 
 export default unprotectedRoutes;
