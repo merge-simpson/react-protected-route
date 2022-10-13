@@ -13,6 +13,7 @@ const LoginProgress = () => {
     OTP: "OTP",
   };
 
+  // 이 배열에서 순서만 바꾸면 페이지 순서가 바뀜.
   const orderedStepList: LoginStepName[] = [
     ProgressName.AUTH,
     ProgressName.OTP,
@@ -21,12 +22,14 @@ const LoginProgress = () => {
   const [stepIndex, setStepIndex] = useState<number>(0);
 
   const next = useCallback(() => {
-    const nextStep = stepIndex + 1;
-    const isLastStep = nextStep === orderedStepList.length;
+    // 만약 stepIndex가 1이었을 때 눌리면(이 함수 실행되면)
+    const nextStep = stepIndex + 1; // 2
+    const isLastStep = nextStep === orderedStepList.length; // true
 
     if (isLastStep) {
-      auth.login({ success: console.log });
-      return;
+      // code: 최종에서 할 동작
+      auth.login({ success: console.log }); // login
+      return; // login 완료
     }
 
     setStepIndex(nextStep);
