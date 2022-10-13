@@ -9,7 +9,7 @@ import QUICK_PATH from "@utils/quick-path";
 function App() {
   const auth = useAuth();
 
-  const [RouteComponentSet, setRouteComponentSet] = useState<
+  const [routeComponentSet, setRouteComponentSet] = useState<
     React.ReactElement[]
   >([]);
   const [defaultRedirectionPath, setDefaultRedirectionPath] =
@@ -27,7 +27,7 @@ function App() {
   return (
     <div className="App">
       <Routes>
-        {RouteComponentSet}
+        {routeComponentSet}
         <Route
           path="*"
           element={<Navigate replace to={defaultRedirectionPath} />}
