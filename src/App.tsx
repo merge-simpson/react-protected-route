@@ -4,7 +4,7 @@ import useAuth from "@store/useAuth";
 import QUICK_PATH from "@utils/quick-path";
 import STORAGE_KEY from "@utils/storage-key";
 import React, { useLayoutEffect, useState } from "react";
-import { Routes, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import "./App.css";
 
 function App() {
