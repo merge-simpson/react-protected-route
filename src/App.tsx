@@ -1,7 +1,8 @@
-import protectedRoutes from "@components/common/router/protectedRoutes";
-import unprotectedRoutes from "@components/common/router/unprotectedRoutes";
+import ProtectedRoutes from "@components/routes/protectedRoutes";
+import UnprotectedRoutes from "@components/routes/unprotectedRoutes";
 import useAuth from "@store/useAuth";
 import QUICK_PATH from "@utils/quick-path";
+import STORAGE_KEY from "@utils/storage-key";
 import React, { useLayoutEffect, useState } from "react";
 import { Routes, useLocation } from "react-router-dom";
 import "./App.css";
@@ -14,19 +15,23 @@ function App() {
   // 2. useLocation to listen the change of location or path - nav를 가지는 페이지와 아닌 페이지 구분하기
   const auth = useAuth();
 
-  const [routeComponents, setRouteComponents] = useState<React.ReactElement[]>(
-    []
+  const [routeComponents, setRouteComponents] = useState<React.ReactElement>(
+    localStorage.getItem(STORAGE_KEY.AUTHUSER) != null ? (
+      <ProtectedRoutes />
+    ) : (
+      <UnprotectedRoutes />
+    )
   );
 
   useLayoutEffect(() => {
     setRouteComponents(
-      auth.isAuthenticated ? protectedRoutes : unprotectedRoutes
+      auth.isAuthenticated ? <ProtectedRoutes /> : <UnprotectedRoutes />
     );
   }, [auth.isAuthenticated]);
 
   return (
     <div className="App">
-      <Routes>{routeComponents}</Routes>
+      <div>{routeComponents}</div>
     </div>
   );
 }

@@ -14,10 +14,7 @@ const LoginProgress = () => {
   };
 
   // 이 배열에서 순서만 바꾸면 페이지 순서가 바뀜.
-  const orderedStepList: LoginStepName[] = [
-    ProgressName.AUTH,
-    ProgressName.OTP,
-  ];
+  const orderedStepList: LoginStepName[] = ["AUTH", "OTP"];
 
   const [stepIndex, setStepIndex] = useState<number>(0);
 
@@ -36,7 +33,6 @@ const LoginProgress = () => {
   }, [stepIndex]);
 
   return (
-    //
     <div>
       <h1>Login Progress</h1>
       <main>
