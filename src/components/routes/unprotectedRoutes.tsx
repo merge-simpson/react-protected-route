@@ -1,8 +1,8 @@
 import LoginProgress from "@components/login/LoginProgress";
 import { Navigate, Route, Routes } from "react-router-dom";
-import QUICK_PATH from "@utils/quick-path";
+import PATH from "@utils/path";
 
-const { LOGIN } = QUICK_PATH;
+const { LOGIN } = PATH;
 
 const UnprotectedRoutes = () => {
   return (

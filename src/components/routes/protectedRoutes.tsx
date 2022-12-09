@@ -1,8 +1,8 @@
 import Home from "@components/home/Home";
 import { Navigate, Route, Routes } from "react-router-dom";
-import QUICK_PATH from "@utils/quick-path";
+import PATH from "@utils/path";
 
-const { HOME } = QUICK_PATH;
+const { HOME } = PATH;
 
 const ProtectedRoutes = () => {
   return (
