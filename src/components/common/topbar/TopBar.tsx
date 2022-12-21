@@ -7,7 +7,7 @@ const TopBar = () => {
 
   return (
     //
-    <header className="grid grid-cols-4 gap-4 items-center px-4 pt-8 pb-4 border-b">
+    <header className="grid grid-cols-4 gap-4 items-center px-4 pt-8 pb-4 border-b h-24">
       <h1 className="select-none text-lg sm:text-xl font-bold">
         Protected Routes
       </h1>
