@@ -17,7 +17,7 @@ const TopBar = () => {
           <li>메뉴2</li>
         </ul>
       </nav>
-      <div>{auth.isAuthenticated ? <SignInButton /> : <SignOutButton />}</div>
+      <div>{auth.isAuthenticated ? <SignOutButton /> : <SignInButton />}</div>
     </header>
   );
 };

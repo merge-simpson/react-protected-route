@@ -1,11 +1,13 @@
-import useAuth from "@store/useAuth";
-import { LightButton, PrimaryButton } from "@styles/tw/button";
+import { PrimaryButton } from "@styles/tw/button";
+import PATH from "@utils/path";
+import { useNavigate } from "react-router-dom";
 
 const SignInButton = () => {
-  const auth = useAuth();
+  const navigate = useNavigate();
+  const { LOGIN } = PATH;
 
   return (
-    <PrimaryButton onClick={(event) => auth.login()}>Sign Out</PrimaryButton>
+    <PrimaryButton onClick={(event) => navigate(LOGIN)}>Sign In</PrimaryButton>
   );
 };
 
