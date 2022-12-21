@@ -7,12 +7,12 @@ const TopBar = () => {
 
   return (
     //
-    <header className="flex gap-4 justify-between items-center px-4 pt-8 pb-4 border-b">
+    <header className="grid grid-cols-4 gap-4 items-center px-4 pt-8 pb-4 border-b">
       <h1 className="select-none text-lg sm:text-xl font-bold">
         Protected Routes
       </h1>
-      <nav className="flex items-end h-full">
-        <ul className="flex gap-4 select-none">
+      <nav className="col-span-2 flex justify-end items-end h-full">
+        <ul className="grid grid-cols-2 gap-4 select-none text-lg font-bold">
           <li>메뉴1</li>
           <li>메뉴2</li>
         </ul>
