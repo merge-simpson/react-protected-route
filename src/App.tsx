@@ -10,8 +10,8 @@ import "./App.css";
 function App() {
   const { HOME, LOGIN } = PATH;
   const location = useLocation();
-  // 1. 리디렉션용 라우트는 각 배열에 옮김(because rerendering 순서가 더 늦기 때문에 무조건 리디렉션이 작동해 버리는 현상)
-  //    - 그래서 그거 default 머시기를 안 쓰게 되니까 지움.
+  // 1. 공통된 라우트 영역을 <Routes></Routes> 바깥으로 뺄 수가 없는 현상.
+  //    -> Routes 단위로 일반화하여야 원활하게 작동함(Routes 바깥에 둘 경우 렌더링 시점 차이로 공통영역 Redirection이 먼저 작동하기 때문).
   // 2. useLocation to listen the change of location or path - nav를 가지는 페이지와 아닌 페이지 구분하기
   const auth = useAuth();
 
