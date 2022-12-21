@@ -1,3 +1,4 @@
+import TopBar from "@components/common/topbar/TopBar";
 import ProtectedRoutes from "@components/routes/protectedRoutes";
 import UnprotectedRoutes from "@components/routes/unprotectedRoutes";
 import useAuth from "@store/useAuth";
@@ -9,6 +10,7 @@ import "./App.css";
 
 function App() {
   const { HOME, LOGIN } = PATH;
+  const pathsIncludingNavigate: string[] = [HOME, LOGIN];
   const location = useLocation();
   // 1. 공통된 라우트 영역을 <Routes></Routes> 바깥으로 뺄 수가 없는 현상.
   //    -> Routes 단위로 일반화하여야 원활하게 작동함(Routes 바깥에 둘 경우 렌더링 시점 차이로 공통영역 Redirection이 먼저 작동하기 때문).
@@ -22,6 +24,7 @@ function App() {
       <UnprotectedRoutes />
     )
   );
+  const [hasNav, setHasNave] = useState<boolean>(false);
 
   useLayoutEffect(() => {
     setRouteComponents(
@@ -29,8 +32,19 @@ function App() {
     );
   }, [auth.isAuthenticated]);
 
+  useLayoutEffect(() => {
+    const pathname =
+      location.pathname.length > 1 && location.pathname.at(-1) === "/"
+        ? location.pathname.slice(0, -1)
+        : location.pathname;
+
+    const hasNav = pathsIncludingNavigate.includes(pathname);
+    setHasNave(hasNav);
+  }, [location.pathname]);
+
   return (
     <div className="App">
+      {hasNav && <TopBar />}
       <div>{routeComponents}</div>
     </div>
   );
