@@ -1,7 +1,7 @@
 import useAuth from "@store/useAuth";
 import { useCallback, useState } from "react";
-import LoginForm from "./widgets/LoginForm";
-import OTPConfirmForm from "./widgets/OTPConfirmForm";
+import LoginForm from "./progress/LoginForm";
+import OTPConfirmForm from "./progress/OTPConfirmForm";
 
 export type LoginStepName = "AUTH" | "OTP";
 
