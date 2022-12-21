@@ -7,13 +7,8 @@ const { LOGIN } = PATH;
 const UnprotectedRoutes = () => {
   return (
     <Routes>
-      {" "}
-      <Route key={LOGIN} path={LOGIN} element={<LoginProgress />} />
-      <Route
-        key="redirection"
-        path="*"
-        element={<Navigate replace to={LOGIN} />}
-      />
+      <Route path={LOGIN} element={<LoginProgress />} />
+      <Route path="*" element={<Navigate replace to={LOGIN} />} />
     </Routes>
   );
 };
