@@ -133,7 +133,7 @@ export const LightButton: FC<CommonButtonProps> = (props) => {
   return (
     <ButtonInterface
       {...restProps}
-      className={`bg-light text-light-contra active:bg-light-active ${className}`}
+      className={`bg-light border text-light-contra active:bg-light-active ${className}`}
     >
       {children}
     </ButtonInterface>
