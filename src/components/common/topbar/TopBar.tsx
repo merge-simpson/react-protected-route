@@ -12,7 +12,7 @@ const TopBar = () => {
         Protected Routes
       </h1>
       <nav className="col-span-2 flex justify-end items-end h-full">
-        <ul className="grid grid-cols-2 gap-4 select-none text-lg font-bold">
+        <ul className="grid grid-cols-2 gap-4 select-none text-lg">
           <li>메뉴1</li>
           <li>메뉴2</li>
         </ul>
