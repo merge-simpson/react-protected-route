@@ -59,5 +59,8 @@ module.exports = {
       xs: { max: "319px" },
     },
   },
-  plugins: [],
+  plugins: [
+    require("tailwind-scrollbar-hide"),
+    require("@tailwindcss/line-clamp"),
+  ],
 };
