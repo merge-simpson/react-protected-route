@@ -1,5 +1,4 @@
 import { FunctionComponent as FC, useRef } from "react";
-import NonSubmitButton from "@utils/nonsubmit-button";
 import { LightButton, PrimaryButton } from "@styles/tw/button";
 
 export interface LoginFormProps {
