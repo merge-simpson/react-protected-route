@@ -10,9 +10,9 @@ export type CommonInputProps = Omit<Props<HTMLInputElement>, "classID">;
 
 export type CommonDivProps = Omit<Props<HTMLDivElement>, "classID">;
 
-export type CommonLabelProps = Props<HTMLLabelElement>;
+export type CommonLabelProps = Omit<Props<HTMLLabelElement>, "classID">;
 
-export type CommonFormProps = Props<HTMLFormElement>;
+export type CommonFormProps = Omit<Props<HTMLFormElement>, "classID">;
 
 // Button은 좀 다름.
 export type CommonButtonProps = React.DetailedHTMLProps<
