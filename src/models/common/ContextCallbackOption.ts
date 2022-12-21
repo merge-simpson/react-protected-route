@@ -1,4 +1,4 @@
 export default interface ContextCallbackOption {
-  success?: (responseData?: any) => void;
+  success?: <T>(responseData?: T) => void;
   onCatch?: (err?: Error) => void;
 }
