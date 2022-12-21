@@ -7,8 +7,8 @@ const TopBar = () => {
 
   return (
     //
-    <header className="grid grid-cols-4 gap-4 items-center px-4 pt-8 pb-4 border-b h-24">
-      <h1 className="select-none text-lg sm:text-xl font-bold">
+    <header className="grid grid-cols-4 gap-4 items-center px-8 pt-8 pb-4 border-b h-24">
+      <h1 className="select-none text-lg sm:text-xl font-bold text-left">
         Protected Routes
       </h1>
       <nav className="col-span-2 flex justify-end items-end h-full">
@@ -17,7 +17,9 @@ const TopBar = () => {
           <li>메뉴2</li>
         </ul>
       </nav>
-      <div>{auth.isAuthenticated ? <SignOutButton /> : <SignInButton />}</div>
+      <div className="flex justify-end items-center">
+        {auth.isAuthenticated ? <SignOutButton /> : <SignInButton />}
+      </div>
     </header>
   );
 };

@@ -10,7 +10,7 @@ const LoginForm: FC<LoginFormProps> = (props) => {
 
   return (
     <form
-      className="max-w-[50rem] border rounded-md p-8 flex flex-col gap-4"
+      className="max-w-[50rem] border rounded-md p-8 flex flex-col gap-4 bg-white font-bold mb-12"
       onSubmit={(evt) => {
         evt.preventDefault();
         next();

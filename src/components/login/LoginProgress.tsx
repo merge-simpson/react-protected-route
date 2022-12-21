@@ -33,7 +33,7 @@ const LoginProgress = () => {
   }, [stepIndex]);
 
   return (
-    <div className="flex flex-col py-4 gap-4">
+    <div className="flex flex-col py-4 gap-4 flex-auto justify-center items-center bg-slate-100">
       <h1 className="text-2xl font-bold">Login Progress</h1>
       <main className="flex flex-col items-center">
         {orderedStepList[stepIndex] === ProgressName.AUTH && (

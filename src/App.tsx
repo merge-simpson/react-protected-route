@@ -43,9 +43,9 @@ function App() {
   }, [location.pathname]);
 
   return (
-    <div className="App">
+    <div className="min-h-screen flex flex-col">
       {hasNav && <TopBar />}
-      <div>{routeComponents}</div>
+      {routeComponents}
     </div>
   );
 }
