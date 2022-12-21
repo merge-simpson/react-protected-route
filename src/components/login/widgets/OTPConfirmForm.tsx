@@ -1,3 +1,4 @@
+import { PrimaryButton } from "@styles/tw/button";
 import { FunctionComponent as FC } from "react";
 
 export interface OTPConfirmFormProps {
@@ -15,8 +16,14 @@ const OTPConfirmForm: FC<OTPConfirmFormProps> = ({ next }) => {
           next();
         }}
       >
-        <input value="012346" onChange={() => {}} />
-        <button>LOGIN</button>
+        <input
+          value="012346"
+          name="otp"
+          autoComplete="off"
+          onChange={() => {}}
+          className="border rounded px-2 outline-dark col-span-2"
+        />
+        <PrimaryButton onClick={() => next()}>LOGIN</PrimaryButton>
       </form>
     </div>
   );
